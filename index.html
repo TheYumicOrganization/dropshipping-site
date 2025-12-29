@@ -1,290 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>YumicCart – Demo E-Commerce</title>
+<meta charset="UTF-8">
+<title>YumicCart – Demo E-Commerce Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f3f6;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f1f3f6;
+  line-height:1.6;
+}
 
-    /* Navbar */
-    .navbar {
-      background: #2874f0;
-      color: white;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* Navbar */
+.navbar{
+  background:#2874f0;
+  color:white;
+  padding:15px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+}
 
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
+/* Sections */
+.section{
+  background:white;
+  margin:15px;
+  padding:25px;
+}
 
-    .navbar li {
-      cursor: pointer;
-    }
+.section h2{
+  margin-top:0;
+}
 
-    /* Hero */
-    .hero {
-      background: white;
-      padding: 40px;
-      text-align: center;
-    }
+/* Products */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
 
-    .hero h1 {
-      margin-bottom: 10px;
-    }
+.card{
+  background:#fafafa;
+  padding:15px;
+  cursor:pointer;
+  transition:0.2s;
+}
 
-    .dynamic-text {
-      color: #555;
-      font-size: 16px;
-      height: 20px;
-    }
+.card:hover{
+  transform:scale(1.03);
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
 
-    /* Products */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+.price{
+  color:green;
+  font-weight:bold;
+}
 
-    .card {
-      background: white;
-      padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
-    }
+/* Buttons */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 14px;
+  background:#2874f0;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
+/* Support boxes */
+.support-box{
+  background:#f9f9f9;
+  padding:15px;
+  margin-bottom:10px;
+  border-left:5px solid #2874f0;
+}
 
-    .price {
-      color: green;
-      font-weight: bold;
-    }
+/* Footer */
+footer{
+  background:#172337;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+}
 
-    .details {
-      display: none;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    /* Support */
-    .support {
-      padding: 30px;
-      background: white;
-      margin: 20px;
-    }
-
-    .support-box {
-      padding: 15px;
-      border-left: 5px solid #2874f0;
-      margin-bottom: 15px;
-      background: #f9f9f9;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
-    }
-
-    .support-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    .support-details {
-      display: none;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #333;
-    }
-
-    footer {
-      background: #172337;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-    }
-  </style>
+@media(min-width:768px){
+  .section{
+    max-width:1000px;
+    margin:20px auto;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <div><strong>YumicCart</strong></div>
-    <ul>
-      <li>Home</li>
-      <li>Electronics</li>
-      <li>Fashion</li>
-      <li>Appliances</li>
-      <li onclick="document.getElementById('support').scrollIntoView()">Support</li>
-    </ul>
-  </div>
+<div class="navbar">YumicCart</div>
 
-  <!-- Hero -->
-  <div class="hero">
-    <h1>YumicCart</h1>
-    <div class="dynamic-text" id="dynamicText">
-      Demo E-Commerce Platform (UI Prototype)
-    </div>
-  </div>
+<!-- HERO -->
+<div class="section">
+  <h1>YumicCart</h1>
+  <p>
+    YumicCart is a demo e-commerce platform designed to showcase how a modern
+    online shopping website like Flipkart or Amazon is structured.
+    This project focuses on frontend design, user experience, and product presentation.
+  </p>
+  <p>
+    The goal of YumicCart is to demonstrate product listings, detailed product pages,
+    cart interaction, and support flows in a clean and understandable manner.
+  </p>
+</div>
 
-  <!-- Products -->
+<!-- WHY YUMICCART -->
+<div class="section">
+  <h2>Why YumicCart?</h2>
+  <p>
+    Modern e-commerce platforms are built in multiple stages. YumicCart represents
+    the first and most important stage: the user interface.
+  </p>
+  <ul>
+    <li>Clear product categorization</li>
+    <li>Dedicated product detail pages</li>
+    <li>Expandable descriptions and specifications</li>
+    <li>Mobile-friendly responsive layout</li>
+    <li>Scalable structure for future backend integration</li>
+  </ul>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section">
+  <h2>Featured Products</h2>
+
   <div class="products">
 
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card" onclick="location.href='lamp.html'">
       <h3>Smart LED Lamp</h3>
       <p class="price">₹1,499</p>
-      <p>Energy-efficient modern lighting</p>
-      <div class="details">
-        This Smart LED Lamp is designed for modern homes and workspaces.
-        Adjustable brightness, eye-care lighting, long-lasting LED technology,
-        low power consumption, and durable build.
-        Ideal for study tables, bedrooms, and offices.
-        Warranty: 1 year manufacturer warranty.
-      </div>
+      <p>Energy-efficient modern lighting solution for homes and offices.</p>
+      <span class="btn">View Details</span>
     </div>
 
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card" onclick="location.href='headphones.html'">
       <h3>Wireless Headphones</h3>
       <p class="price">₹2,999</p>
-      <p>High-quality sound and comfort</p>
-      <div class="details">
-        Immersive sound with deep bass and clear vocals.
-        Comfortable ear cushions for long usage.
-        Bluetooth connectivity with up to 20 hours battery life.
-        Compatible with phones, laptops, and tablets.
-      </div>
+      <p>Comfortable wireless headphones with immersive sound quality.</p>
+      <span class="btn">View Details</span>
     </div>
 
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card" onclick="location.href='powerbank.html'">
       <h3>Power Bank 20,000mAh</h3>
       <p class="price">₹1,199</p>
-      <p>Fast charging portable battery</p>
-      <div class="details">
-        High-capacity power bank suitable for multiple device charges.
-        Supports fast charging, compact design, and safety protection.
-        Ideal for travel and daily use.
-      </div>
+      <p>High-capacity portable power backup for daily and travel use.</p>
+      <span class="btn">View Details</span>
     </div>
 
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card" onclick="location.href='watch.html'">
       <h3>Smart Watch</h3>
       <p class="price">₹3,499</p>
-      <p>Fitness tracking and notifications</p>
-      <div class="details">
-        Tracks steps, heart rate, sleep, and fitness activities.
-        Displays notifications directly on the wrist.
-        Water-resistant and compatible with Android & iOS.
-      </div>
+      <p>Fitness and activity tracking with smart notifications.</p>
+      <span class="btn">View Details</span>
     </div>
 
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card" onclick="location.href='speaker.html'">
       <h3>Bluetooth Speaker</h3>
       <p class="price">₹1,799</p>
-      <p>Loud, clear, and portable audio</p>
-      <div class="details">
-        Portable speaker with loud and clear sound.
-        Bluetooth and AUX support.
-        Battery backup up to 8 hours.
-        Suitable for indoor and outdoor use.
-      </div>
+      <p>Portable speaker delivering loud and clear audio.</p>
+      <span class="btn">View Details</span>
     </div>
 
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card" onclick="location.href='charger.html'">
       <h3>USB-C Fast Charger</h3>
       <p class="price">₹699</p>
-      <p>Quick and safe charging adapter</p>
-      <div class="details">
-        Fast and stable USB-C charging.
-        Built-in protection against overheating and overcurrent.
-        Compact and travel-friendly design.
-      </div>
+      <p>Fast and safe charging solution for modern devices.</p>
+      <span class="btn">View Details</span>
     </div>
 
   </div>
+</div>
 
-  <!-- Support -->
-  <div class="support" id="support">
-    <h2>Help & Support</h2>
+<!-- HOW IT WORKS -->
+<div class="section">
+  <h2>How Ordering Works (Demo Flow)</h2>
+  <p>
+    Each product on YumicCart has its own dedicated page where users can read
+    detailed descriptions, view technical specifications, and interact with
+    Buy Now and Add to Cart options.
+  </p>
+  <p>
+    In a real production system, these actions would connect to backend services
+    such as inventory management, payment gateways, and order tracking systems.
+    This demo focuses on the user experience layer.
+  </p>
+</div>
 
-    <div class="support-box" onclick="toggleSupport(this)">
-      📦 Order & Delivery Support
-      <div class="support-details">
-        Track orders, delivery timelines, delays, and cancellations.
-      </div>
-    </div>
+<!-- SUPPORT -->
+<div class="section">
+  <h2>Help & Support</h2>
 
-    <div class="support-box" onclick="toggleSupport(this)">
-      💳 Payments & Refunds
-      <div class="support-details">
-        Payment failures, refunds, and billing support.
-      </div>
-    </div>
-
-    <div class="support-box" onclick="toggleSupport(this)">
-      🔐 Account & Security
-      <div class="support-details">
-        Login issues, account safety, and data protection.
-      </div>
-    </div>
-
-    <div class="support-box" onclick="toggleSupport(this)">
-      📞 Customer Care & Contact
-      <div class="support-details">
-        Email, phone, and future live-chat support.
-      </div>
-    </div>
+  <div class="support-box">
+    📦 Order & Delivery Support  
+    <p>Information related to order placement, delivery timelines, and cancellations.</p>
   </div>
 
-  <footer>
-    © 2025 YumicCart • Sample Demo Website
-  </footer>
+  <div class="support-box">
+    💳 Payments & Refunds  
+    <p>Support for payment issues, refunds, and transaction queries.</p>
+  </div>
 
-  <script>
-    function toggleDetails(card) {
-      const details = card.querySelector(".details");
-      details.style.display =
-        details.style.display === "block" ? "none" : "block";
-    }
+  <div class="support-box">
+    🔐 Account & Security  
+    <p>Account safety, login assistance, and data protection information.</p>
+  </div>
 
-    function toggleSupport(box) {
-      const details = box.querySelector(".support-details");
-      details.style.display =
-        details.style.display === "block" ? "none" : "block";
-    }
+  <div class="support-box">
+    📞 Customer Care  
+    <p>Email and phone-based customer support (demo representation).</p>
+  </div>
+</div>
 
-    // Dynamic text logic
-    const texts = [
-      "Demo E-Commerce Platform (UI Prototype)",
-      "Multi-Product Shopping Interface",
-      "Expandable Product & Support UI",
-      "Scalable Marketplace Concept"
-    ];
-
-    let index = 0;
-    const textElement = document.getElementById("dynamicText");
-
-    setInterval(() => {
-      index = (index + 1) % texts.length;
-      textElement.textContent = texts[index];
-    }, 2500);
-  </script>
+<!-- FOOTER -->
+<footer>
+  © 2025 YumicCart  
+  <br>
+  Demo E-Commerce Platform • Frontend UI Prototype
+</footer>
 
 </body>
 </html>
