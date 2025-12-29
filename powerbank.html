@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Power Bank 20,000mAh | YumicCart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{margin:0;font-family:Arial;background:#f1f3f6;}
+.nav{background:#2874f0;color:white;padding:15px;text-align:center;}
+.container{background:white;padding:20px;margin:15px;}
+.price{color:green;font-size:22px;font-weight:bold;}
+.buttons{display:flex;gap:10px;margin-top:15px;}
+button{flex:1;padding:12px;font-size:16px;border:none;cursor:pointer;}
+.buy{background:#fb641b;color:white;}
+.cart{background:#ff9f00;color:black;}
+.cart-count{position:fixed;bottom:15px;right:15px;background:black;color:white;padding:10px 15px;border-radius:25px;}
+@media(min-width:768px){.container{max-width:900px;margin:auto;margin-top:30px;}}
+</style>
+</head>
+
+<body>
+
+<div class="nav"><strong>YumicCart</strong></div>
+
+<div class="container">
+<h1>Power Bank 20,000mAh</h1>
+<p class="price">₹1,199</p>
+
+<div class="buttons">
+<button class="buy" onclick="buyNow()">Buy Now</button>
+<button class="cart" onclick="addToCart()">Add to Cart</button>
+</div>
+
+<h2>Description</h2>
+<p>
+This high-capacity power bank is designed to keep your devices charged during travel,
+work, or emergencies. With a 20,000mAh battery, it supports multiple full charges for
+smartphones and other USB-powered devices.
+</p>
+<p>
+The compact yet durable design makes it suitable for daily carry. Advanced safety
+features protect your devices from overcharging, overheating, and short circuits.
+</p>
+
+<h2>Key Features</h2>
+<ul>
+<li>High-capacity battery for extended usage</li>
+<li>Fast and stable charging output</li>
+<li>Multiple device charging support</li>
+<li>Compact and travel-friendly design</li>
+</ul>
+
+<h2>Technical Specifications</h2>
+<ul>
+<li>Battery Capacity: 20,000mAh</li>
+<li>Output: 5V / 2.1A</li>
+<li>Ports: Dual USB Output</li>
+<li>Input: Micro-USB / USB-C</li>
+<li>Safety Protection: Yes</li>
+</ul>
+
+<h2>Warranty</h2>
+<ul>
+<li>Warranty: 1 Year Manufacturer Warranty</li>
+</ul>
+
+<a href="index.html">← Back to YumicCart</a>
+</div>
+
+<div class="cart-count" id="cartCount">Cart: 0</div>
+
+<script>
+let cart=0;
+function addToCart(){cart++;document.getElementById("cartCount").innerText="Cart: "+cart;}
+function buyNow(){alert("Buy Now clicked (Demo only)");}
+</script>
+
+</body>
+</html>
