@@ -40,10 +40,20 @@
       text-align: center;
     }
 
+    .hero h1 {
+      margin-bottom: 10px;
+    }
+
+    .dynamic-text {
+      color: #555;
+      font-size: 16px;
+      height: 20px;
+    }
+
     /* Products */
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       padding: 20px;
     }
@@ -52,15 +62,26 @@
       background: white;
       padding: 15px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
     }
 
-    .card h3 {
-      margin: 10px 0 5px;
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
 
     .price {
       color: green;
       font-weight: bold;
+    }
+
+    .details {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
     }
 
     /* Support */
@@ -75,6 +96,20 @@
       border-left: 5px solid #2874f0;
       margin-bottom: 15px;
       background: #f9f9f9;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    .support-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .support-details {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
     }
 
     footer {
@@ -104,72 +139,152 @@
   <!-- Hero -->
   <div class="hero">
     <h1>YumicCart</h1>
-    <p>Demo E-Commerce Platform (UI Prototype)</p>
+    <div class="dynamic-text" id="dynamicText">
+      Demo E-Commerce Platform (UI Prototype)
+    </div>
   </div>
 
   <!-- Products -->
   <div class="products">
-    <div class="card">
+
+    <div class="card" onclick="toggleDetails(this)">
       <h3>Smart LED Lamp</h3>
       <p class="price">₹1,499</p>
       <p>Energy-efficient modern lighting</p>
+      <div class="details">
+        This Smart LED Lamp is designed for modern homes and workspaces.
+        Adjustable brightness, eye-care lighting, long-lasting LED technology,
+        low power consumption, and durable build.
+        Ideal for study tables, bedrooms, and offices.
+        Warranty: 1 year manufacturer warranty.
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleDetails(this)">
       <h3>Wireless Headphones</h3>
       <p class="price">₹2,999</p>
       <p>High-quality sound and comfort</p>
+      <div class="details">
+        Immersive sound with deep bass and clear vocals.
+        Comfortable ear cushions for long usage.
+        Bluetooth connectivity with up to 20 hours battery life.
+        Compatible with phones, laptops, and tablets.
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleDetails(this)">
       <h3>Power Bank 20,000mAh</h3>
       <p class="price">₹1,199</p>
       <p>Fast charging portable battery</p>
+      <div class="details">
+        High-capacity power bank suitable for multiple device charges.
+        Supports fast charging, compact design, and safety protection.
+        Ideal for travel and daily use.
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleDetails(this)">
       <h3>Smart Watch</h3>
       <p class="price">₹3,499</p>
       <p>Fitness tracking and notifications</p>
+      <div class="details">
+        Tracks steps, heart rate, sleep, and fitness activities.
+        Displays notifications directly on the wrist.
+        Water-resistant and compatible with Android & iOS.
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleDetails(this)">
       <h3>Bluetooth Speaker</h3>
       <p class="price">₹1,799</p>
       <p>Loud, clear, and portable audio</p>
+      <div class="details">
+        Portable speaker with loud and clear sound.
+        Bluetooth and AUX support.
+        Battery backup up to 8 hours.
+        Suitable for indoor and outdoor use.
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleDetails(this)">
       <h3>USB-C Fast Charger</h3>
       <p class="price">₹699</p>
       <p>Quick and safe charging adapter</p>
+      <div class="details">
+        Fast and stable USB-C charging.
+        Built-in protection against overheating and overcurrent.
+        Compact and travel-friendly design.
+      </div>
     </div>
+
   </div>
 
   <!-- Support -->
   <div class="support" id="support">
     <h2>Help & Support</h2>
 
-    <div class="support-box">
+    <div class="support-box" onclick="toggleSupport(this)">
       📦 Order & Delivery Support
+      <div class="support-details">
+        Track orders, delivery timelines, delays, and cancellations.
+      </div>
     </div>
 
-    <div class="support-box">
+    <div class="support-box" onclick="toggleSupport(this)">
       💳 Payments & Refunds
+      <div class="support-details">
+        Payment failures, refunds, and billing support.
+      </div>
     </div>
 
-    <div class="support-box">
+    <div class="support-box" onclick="toggleSupport(this)">
       🔐 Account & Security
+      <div class="support-details">
+        Login issues, account safety, and data protection.
+      </div>
     </div>
 
-    <div class="support-box">
+    <div class="support-box" onclick="toggleSupport(this)">
       📞 Customer Care & Contact
+      <div class="support-details">
+        Email, phone, and future live-chat support.
+      </div>
     </div>
   </div>
 
   <footer>
     © 2025 YumicCart • Sample Demo Website
   </footer>
+
+  <script>
+    function toggleDetails(card) {
+      const details = card.querySelector(".details");
+      details.style.display =
+        details.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleSupport(box) {
+      const details = box.querySelector(".support-details");
+      details.style.display =
+        details.style.display === "block" ? "none" : "block";
+    }
+
+    // Dynamic text logic
+    const texts = [
+      "Demo E-Commerce Platform (UI Prototype)",
+      "Multi-Product Shopping Interface",
+      "Expandable Product & Support UI",
+      "Scalable Marketplace Concept"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("dynamicText");
+
+    setInterval(() => {
+      index = (index + 1) % texts.length;
+      textElement.textContent = texts[index];
+    }, 2500);
+  </script>
 
 </body>
 </html>
