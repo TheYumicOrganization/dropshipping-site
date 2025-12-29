@@ -32,6 +32,7 @@ body{
   gap:10px;
 }
 
+/* Thumbnails */
 .thumbs{
   display:flex;
   flex-direction:column;
@@ -48,12 +49,23 @@ body{
   border:2px solid #2874f0;
 }
 
-.main-img img{
+/* Main image + zoom */
+.main-img{
   width:420px;
-  max-width:100%;
+  height:420px;
+  overflow:hidden;
+  border:1px solid #ddd;
+  position:relative;
 }
 
-/* RIGHT: details */
+.main-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:transform 0.2s ease;
+}
+
+/* RIGHT details */
 .details h1{
   margin-top:0;
   font-size:22px;
@@ -82,9 +94,9 @@ body{
   font-size:14px;
 }
 
-/* Bottom sections */
+/* Sections */
 .section{
-  margin-top:30px;
+  margin-top:35px;
 }
 
 .section h2{
@@ -98,8 +110,9 @@ body{
   .product-top{
     flex-direction:column;
   }
-  .main-img img{
+  .main-img{
     width:100%;
+    height:auto;
   }
 }
 </style>
@@ -112,7 +125,7 @@ body{
   <!-- TOP PRODUCT AREA -->
   <div class="product-top">
 
-    <!-- LEFT IMAGE AREA -->
+    <!-- LEFT IMAGES -->
     <div class="images">
 
       <div class="thumbs">
@@ -124,7 +137,7 @@ body{
         <img src="assets/images/p5.png" onclick="changeImage(this)">
       </div>
 
-      <div class="main-img">
+      <div class="main-img" id="zoomBox">
         <img id="mainImage" src="assets/images/p-specs.png">
       </div>
 
@@ -140,17 +153,16 @@ body{
 
       <div class="highlights">
         <ul>
-          <li>Intel Core i3-5010U (5th Generation)</li>
+          <li>Intel Core i3-5010U Processor (5th Generation)</li>
           <li>4 GB DDR3 RAM</li>
           <li>64-bit Architecture</li>
-          <li>Everyday use: browsing, study, coding basics</li>
-          <li>HP build quality</li>
+          <li>Ideal for study, browsing, and light coding</li>
+          <li>HP consumer notebook design</li>
         </ul>
       </div>
 
       <div class="note">
-        ⚠️ This is a catalog/demo listing.  
-        No online purchase available at the moment.
+        ⚠️ Catalog / demo listing. No online purchase available.
       </div>
 
     </div>
@@ -159,11 +171,39 @@ body{
   <!-- DESCRIPTION -->
   <div class="section">
     <h2>Description</h2>
+
     <p>
-      The HP Notebook (N8M06PA) is a reliable consumer laptop designed for everyday
-      computing tasks such as web browsing, online learning, document editing, and
-      basic programming. Powered by an Intel Core i3 5th Generation processor, it
-      delivers stable performance for routine workloads.
+      The HP Notebook (N8M06PA) is a consumer laptop designed to provide dependable
+      performance for everyday computing needs. Released around 2015, this model
+      targets students, home users, and office environments where reliability and
+      practicality are more important than raw processing power.
+    </p>
+
+    <p>
+      Powered by the Intel Core i3-5010U processor, this notebook delivers stable
+      performance for common tasks such as web browsing, document editing, online
+      learning, and basic programming. The processor focuses on efficiency, allowing
+      the system to remain responsive during routine workloads.
+    </p>
+
+    <p>
+      With 4 GB of DDR3 RAM, the laptop is suitable for light multitasking scenarios.
+      Users can comfortably operate multiple browser tabs, productivity software,
+      and educational tools without significant slowdown under normal usage
+      conditions.
+    </p>
+
+    <p>
+      The design philosophy of this HP notebook emphasizes usability and durability.
+      The keyboard layout supports extended typing sessions, making it suitable for
+      students and professionals who spend long hours working on documents or code.
+    </p>
+
+    <p>
+      Overall, the HP Notebook (N8M06PA) serves as a reliable, entry-level laptop for
+      users seeking a practical machine for learning, office work, and general
+      computing tasks. It is not intended for modern gaming or intensive creative
+      workloads.
     </p>
   </div>
 
@@ -172,7 +212,7 @@ body{
     <h2>Specifications</h2>
     <ul>
       <li>Brand: HP</li>
-      <li>Model: N8M06PA</li>
+      <li>Model: HP Notebook (N8M06PA)</li>
       <li>Processor: Intel Core i3-5010U</li>
       <li>Memory: 4 GB DDR3 RAM</li>
       <li>Architecture: 64-bit</li>
@@ -183,12 +223,32 @@ body{
 </div>
 
 <script>
+/* Thumbnail switching */
 function changeImage(el){
-  document.getElementById("mainImage").src = el.src;
+  const main = document.getElementById("mainImage");
+  main.src = el.src;
+
   document.querySelectorAll(".thumbs img")
     .forEach(img => img.classList.remove("active"));
   el.classList.add("active");
 }
+
+/* Flipkart-style zoom */
+const zoomBox = document.getElementById("zoomBox");
+const zoomImg = document.getElementById("mainImage");
+
+zoomBox.addEventListener("mousemove", function(e){
+  const rect = zoomBox.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+  zoomImg.style.transformOrigin = `${x}% ${y}%`;
+  zoomImg.style.transform = "scale(1.8)";
+});
+
+zoomBox.addEventListener("mouseleave", function(){
+  zoomImg.style.transform = "scale(1)";
+});
 </script>
 
 </body>
