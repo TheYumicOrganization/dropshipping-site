@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>YumicCart – Demo E-Commerce Platform</title>
+<title>YumicCart</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -10,22 +10,6 @@ body{
   margin:0;
   font-family:Arial, sans-serif;
   background:#f1f3f6;
-  line-height:1.6;
-}
-
-/* Dynamic text link */
-.info-link {
-  font-size:14px;
-  font-weight:normal;
-  color:#2874f0;
-  cursor:pointer;
-  margin-left:10px;
-  display:inline-block;
-  transition:transform 0.2s ease, color 0.2s ease;
-}
-.info-link:hover {
-  transform:translateX(4px);
-  color:#0b5ed7;
 }
 
 /* Navbar */
@@ -38,21 +22,17 @@ body{
   font-weight:bold;
 }
 
-/* Sections */
+/* Section */
 .section{
   background:white;
   margin:15px;
   padding:25px;
 }
 
-.section h2{
-  margin-top:0;
-}
-
 /* Products */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
 }
 
@@ -64,8 +44,22 @@ body{
 }
 
 .card:hover{
-  transform:scale(1.03);
   box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Specs image hover zoom */
+.specs-image-wrapper{
+  overflow:hidden;
+  border-radius:6px;
+}
+
+.specs-image{
+  width:100%;
+  transition:transform 0.35s ease;
+}
+
+.card:hover .specs-image{
+  transform:scale(1.08);
 }
 
 .price{
@@ -73,39 +67,21 @@ body{
   font-weight:bold;
 }
 
-/* Buttons */
 .btn{
   display:inline-block;
   margin-top:10px;
   padding:10px 14px;
   background:#2874f0;
   color:white;
-  text-decoration:none;
   font-size:14px;
 }
 
-/* Support boxes */
-.support-box{
-  background:#f9f9f9;
-  padding:15px;
-  margin-bottom:10px;
-  border-left:5px solid #2874f0;
-}
-
-/* Footer */
 footer{
   background:#172337;
   color:white;
   text-align:center;
   padding:20px;
   font-size:14px;
-}
-
-@media(min-width:768px){
-  .section{
-    max-width:1000px;
-    margin:20px auto;
-  }
 }
 </style>
 </head>
@@ -114,147 +90,39 @@ footer{
 
 <div class="navbar">YumicCart</div>
 
-<!-- HERO -->
 <div class="section">
   <h1>YumicCart</h1>
-  <p>
-    YumicCart is a demo e-commerce platform designed to showcase how a modern
-    online shopping website like Flipkart or Amazon is structured.
-    This project focuses on frontend design, user experience, and product presentation.
-  </p>
-  <p>
-    The goal of YumicCart is to demonstrate product listings, detailed product pages,
-    cart interaction, and support flows in a clean and understandable manner.
-  </p>
+  <p>Demo product catalog showcasing real hardware with clean presentation.</p>
 </div>
 
-<!-- WHY YUMICCART -->
 <div class="section">
-  <h2>
-    Why YumicCart?
-    <span class="info-link"
-          onclick="goToDetails('iphone.html')"
-          title="View complete iPhone history">
-      iPhone details ℹ️
-    </span>
-  </h2>
-
-  <p>
-    Modern e-commerce platforms are built in multiple stages. YumicCart represents
-    the first and most important stage: the user interface.
-  </p>
-
-  <ul>
-    <li>Clear product categorization</li>
-    <li>Dedicated product detail pages</li>
-    <li>Expandable descriptions and specifications</li>
-    <li>Mobile-friendly responsive layout</li>
-    <li>Scalable structure for future backend integration</li>
-  </ul>
-</div>
-
-<!-- PRODUCTS -->
-<div class="section">
-  <h2>Featured Products</h2>
+  <h2>Featured Product</h2>
 
   <div class="products">
+    <div class="card" onclick="location.href='laptop.html'">
 
-    <div class="card" onclick="location.href='lamp.html'">
-      <h3>Smart LED Lamp</h3>
-      <p class="price">₹1,499</p>
-      <p>Energy-efficient modern lighting solution for homes and offices.</p>
+      <div class="specs-image-wrapper">
+        <img src="assets/images/hp-n8m06pa/p-specs.png"
+             alt="HP Notebook N8M06PA Specs"
+             class="specs-image">
+      </div>
+
+      <h3>HP Notebook (N8M06PA)</h3>
+      <p class="price">Intel Core i3 (5th Gen)</p>
+
+      <p>
+        4GB RAM • Reliable laptop for learning, browsing,
+        and basic productivity.
+      </p>
+
       <span class="btn">View Details</span>
     </div>
-
-    <div class="card" onclick="location.href='headphones.html'">
-      <h3>Wireless Headphones</h3>
-      <p class="price">₹2,999</p>
-      <p>Comfortable wireless headphones with immersive sound quality.</p>
-      <span class="btn">View Details</span>
-    </div>
-
-    <div class="card" onclick="location.href='powerbank.html'">
-      <h3>Power Bank 20,000mAh</h3>
-      <p class="price">₹1,199</p>
-      <p>High-capacity portable power backup for daily and travel use.</p>
-      <span class="btn">View Details</span>
-    </div>
-
-    <div class="card" onclick="location.href='watch.html'">
-      <h3>Smart Watch</h3>
-      <p class="price">₹3,499</p>
-      <p>Fitness and activity tracking with smart notifications.</p>
-      <span class="btn">View Details</span>
-    </div>
-
-    <div class="card" onclick="location.href='speaker.html'">
-      <h3>Bluetooth Speaker</h3>
-      <p class="price">₹1,799</p>
-      <p>Portable speaker delivering loud and clear audio.</p>
-      <span class="btn">View Details</span>
-    </div>
-
-    <div class="card" onclick="location.href='charger.html'">
-      <h3>USB-C Fast Charger</h3>
-      <p class="price">₹699</p>
-      <p>Fast and safe charging solution for modern devices.</p>
-      <span class="btn">View Details</span>
-    </div>
-
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<div class="section">
-  <h2>How Ordering Works (Demo Flow)</h2>
-  <p>
-    Each product on YumicCart has its own dedicated page where users can read
-    detailed descriptions, view technical specifications, and interact with
-    Buy Now and Add to Cart options.
-  </p>
-  <p>
-    In a real production system, these actions would connect to backend services
-    such as inventory management, payment gateways, and order tracking systems.
-    This demo focuses on the user experience layer.
-  </p>
-</div>
-
-<!-- SUPPORT -->
-<div class="section">
-  <h2>Help & Support</h2>
-
-  <div class="support-box">
-    📦 Order & Delivery Support
-    <p>Information related to order placement, delivery timelines, and cancellations.</p>
-  </div>
-
-  <div class="support-box">
-    💳 Payments & Refunds
-    <p>Support for payment issues, refunds, and transaction queries.</p>
-  </div>
-
-  <div class="support-box">
-    🔐 Account & Security
-    <p>Account safety, login assistance, and data protection information.</p>
-  </div>
-
-  <div class="support-box">
-    📞 Customer Care
-    <p>Email and phone-based customer support (demo representation).</p>
   </div>
 </div>
 
 <footer>
-  © 2025 YumicCart  
-  <br>
-  Demo E-Commerce Platform • Frontend UI Prototype
+  © 2025 YumicCart • Demo Catalog
 </footer>
-
-<script>
-  function goToDetails(page) {
-    window.location.href = page;
-  }
-</script>
 
 </body>
 </html>
