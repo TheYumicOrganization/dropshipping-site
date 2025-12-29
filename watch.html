@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Watch | YumicCart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{margin:0;font-family:Arial;background:#f1f3f6;}
+.nav{background:#2874f0;color:white;padding:15px;text-align:center;}
+.container{background:white;padding:20px;margin:15px;}
+.price{color:green;font-size:22px;font-weight:bold;}
+.buttons{display:flex;gap:10px;margin-top:15px;}
+button{flex:1;padding:12px;font-size:16px;border:none;cursor:pointer;}
+.buy{background:#fb641b;color:white;}
+.cart{background:#ff9f00;color:black;}
+.cart-count{position:fixed;bottom:15px;right:15px;background:black;color:white;padding:10px 15px;border-radius:25px;}
+@media(min-width:768px){.container{max-width:900px;margin:auto;margin-top:30px;}}
+</style>
+</head>
+
+<body>
+
+<div class="nav"><strong>YumicCart</strong></div>
+
+<div class="container">
+<h1>Smart Watch</h1>
+<p class="price">₹3,499</p>
+
+<div class="buttons">
+<button class="buy" onclick="buyNow()">Buy Now</button>
+<button class="cart" onclick="addToCart()">Add to Cart</button>
+</div>
+
+<h2>Description</h2>
+<p>
+This smart watch is designed to help users monitor their daily fitness and health
+activities while staying connected. It combines essential health tracking features
+with a clean and modern design suitable for everyday wear.
+</p>
+<p>
+The watch provides real-time notifications for calls and messages and supports
+multiple fitness modes for tracking workouts.
+</p>
+
+<h2>Key Features</h2>
+<ul>
+<li>Heart rate and activity tracking</li>
+<li>Sleep and step monitoring</li>
+<li>Call and message notifications</li>
+<li>Water-resistant design</li>
+</ul>
+
+<h2>Technical Specifications</h2>
+<ul>
+<li>Display: 1.3-inch Color Display</li>
+<li>Battery Life: Up to 7 days</li>
+<li>Water Resistance: IP67</li>
+<li>Compatibility: Android & iOS</li>
+</ul>
+
+<h2>Warranty</h2>
+<ul>
+<li>Warranty: 1 Year Manufacturer Warranty</li>
+</ul>
+
+<a href="index.html">← Back to YumicCart</a>
+</div>
+
+<div class="cart-count" id="cartCount">Cart: 0</div>
+
+<script>
+let cart=0;
+function addToCart(){cart++;document.getElementById("cartCount").innerText="Cart: "+cart;}
+function buyNow(){alert("Buy Now clicked (Demo only)");}
+</script>
+
+</body>
+</html>
