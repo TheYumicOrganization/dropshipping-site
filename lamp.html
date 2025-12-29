@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart LED Lamp | YumicCart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body { margin:0; font-family:Arial; background:#f1f3f6; }
+.nav { background:#2874f0; color:white; padding:15px; text-align:center; }
+.container { background:white; padding:20px; margin:15px; }
+.price { color:green; font-size:22px; font-weight:bold; }
+.buttons { display:flex; gap:10px; margin-top:15px; }
+button {
+  flex:1;
+  padding:12px;
+  font-size:16px;
+  border:none;
+  cursor:pointer;
+}
+.buy { background:#fb641b; color:white; }
+.cart { background:#ff9f00; color:black; }
+.cart-count {
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background:black;
+  color:white;
+  padding:10px 15px;
+  border-radius:25px;
+}
+
+@media (min-width:768px) {
+  .container { max-width:900px; margin:auto; margin-top:30px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav"><strong>YumicCart</strong></div>
+
+<div class="container">
+<h1>Smart LED Lamp</h1>
+<p class="price">₹1,499</p>
+
+<div class="buttons">
+  <button class="buy" onclick="buyNow()">Buy Now</button>
+  <button class="cart" onclick="addToCart()">Add to Cart</button>
+</div>
+
+<h2>Description</h2>
+<p>
+The Smart LED Lamp is designed for modern homes, offices, and study environments
+where comfort, efficiency, and durability matter. Built using high-efficiency LED
+technology, this lamp delivers consistent, flicker-free illumination that reduces
+eye strain during prolonged usage such as studying, reading, or working on a computer.
+</p>
+
+<p>
+Unlike traditional lighting solutions, this LED lamp consumes significantly less
+power while providing optimal brightness levels. The sturdy build quality ensures
+long-term reliability, while the compact design makes it suitable for desks,
+bedside tables, and office workstations.
+</p>
+
+<p>
+The lamp supports adjustable brightness settings, allowing users to customize
+lighting intensity based on their environment and usage needs. Heat generation
+is minimal, ensuring safe operation even during extended hours of use.
+</p>
+
+<h2>Key Features</h2>
+<ul>
+<li>Energy-efficient LED technology</li>
+<li>Uniform, flicker-free illumination</li>
+<li>Low heat emission for safe long-term use</li>
+<li>Compact and modern design</li>
+<li>Suitable for home, office, and study use</li>
+</ul>
+
+<h2>Technical Specifications</h2>
+<ul>
+<li>Power Consumption: 8W</li>
+<li>Input Voltage: 220–240V AC</li>
+<li>Luminous Output: Approx. 700 lumens</li>
+<li>Light Color: Cool White</li>
+<li>Material: ABS Plastic + Metal Components</li>
+<li>Operating Lifespan: Up to 30,000 hours</li>
+</ul>
+
+<h2>Warranty & Support</h2>
+<ul>
+<li>Warranty: 1 Year Manufacturer Warranty</li>
+<li>Support: Email & Phone (Demo Only)</li>
+</ul>
+
+<p>
+This product page is part of a UI prototype and demonstrates how a real
+e-commerce platform presents detailed product information to customers.
+</p>
+
+<a href="index.html">← Back to YumicCart</a>
+</div>
+
+<div class="cart-count" id="cartCount">Cart: 0</div>
+
+<script>
+let cart = 0;
+
+function addToCart() {
+  cart++;
+  document.getElementById("cartCount").innerText = "Cart: " + cart;
+}
+
+function buyNow() {
+  alert("Buy Now clicked (Demo only)");
+}
+</script>
+
+</body>
+</html>
