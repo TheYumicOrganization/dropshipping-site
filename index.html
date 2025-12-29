@@ -12,6 +12,15 @@ body{
   background:#f1f3f6;
   line-height:1.6;
 }
+  .details-icon {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+}
+.details-icon:hover {
+  transform: scale(1.2);
+}
+
 
 /* Navbar */
 .navbar{
@@ -229,3 +238,10 @@ footer{
 
 </body>
 </html>
+
+<span class="details-icon" onclick="goToDetails('iphone.html')">ℹ️</span>
+<script>
+  function goToDetails(page) {
+    window.location.href = page;
+  }
+</script>
