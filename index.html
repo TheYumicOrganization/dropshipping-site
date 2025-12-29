@@ -13,9 +13,8 @@ body{
   line-height:1.6;
 }
 
-/* Details icon */
+/* Info icon */
 .details-icon {
-  float: right;
   cursor: pointer;
   font-size: 18px;
   margin-left: 8px;
@@ -57,7 +56,6 @@ body{
   padding:15px;
   cursor:pointer;
   transition:0.2s;
-  position: relative;
 }
 
 .card:hover{
@@ -127,7 +125,20 @@ footer{
 
 <!-- WHY YUMICCART -->
 <div class="section">
-  <h2>Why YumicCart?</h2>
+  <h2>
+    Why YumicCart?
+    <span class="details-icon"
+          onclick="goToDetails('iphone.html')"
+          title="View complete iPhone history">
+          ℹ️
+    </span>
+  </h2>
+
+  <p>
+    Modern e-commerce platforms are built in multiple stages. YumicCart represents
+    the first and most important stage: the user interface.
+  </p>
+
   <ul>
     <li>Clear product categorization</li>
     <li>Dedicated product detail pages</li>
@@ -144,8 +155,6 @@ footer{
   <div class="products">
 
     <div class="card" onclick="location.href='lamp.html'">
-      <span class="details-icon"
-            onclick="event.stopPropagation(); goToDetails('iphone.html')">ℹ️</span>
       <h3>Smart LED Lamp</h3>
       <p class="price">₹1,499</p>
       <p>Energy-efficient modern lighting solution for homes and offices.</p>
@@ -153,8 +162,6 @@ footer{
     </div>
 
     <div class="card" onclick="location.href='headphones.html'">
-      <span class="details-icon"
-            onclick="event.stopPropagation(); goToDetails('iphone.html')">ℹ️</span>
       <h3>Wireless Headphones</h3>
       <p class="price">₹2,999</p>
       <p>Comfortable wireless headphones with immersive sound quality.</p>
@@ -162,8 +169,6 @@ footer{
     </div>
 
     <div class="card" onclick="location.href='powerbank.html'">
-      <span class="details-icon"
-            onclick="event.stopPropagation(); goToDetails('iphone.html')">ℹ️</span>
       <h3>Power Bank 20,000mAh</h3>
       <p class="price">₹1,199</p>
       <p>High-capacity portable power backup for daily and travel use.</p>
@@ -171,8 +176,6 @@ footer{
     </div>
 
     <div class="card" onclick="location.href='watch.html'">
-      <span class="details-icon"
-            onclick="event.stopPropagation(); goToDetails('iphone.html')">ℹ️</span>
       <h3>Smart Watch</h3>
       <p class="price">₹3,499</p>
       <p>Fitness and activity tracking with smart notifications.</p>
@@ -180,8 +183,6 @@ footer{
     </div>
 
     <div class="card" onclick="location.href='speaker.html'">
-      <span class="details-icon"
-            onclick="event.stopPropagation(); goToDetails('iphone.html')">ℹ️</span>
       <h3>Bluetooth Speaker</h3>
       <p class="price">₹1,799</p>
       <p>Portable speaker delivering loud and clear audio.</p>
@@ -189,8 +190,6 @@ footer{
     </div>
 
     <div class="card" onclick="location.href='charger.html'">
-      <span class="details-icon"
-            onclick="event.stopPropagation(); goToDetails('iphone.html')">ℹ️</span>
       <h3>USB-C Fast Charger</h3>
       <p class="price">₹699</p>
       <p>Fast and safe charging solution for modern devices.</p>
@@ -198,6 +197,21 @@ footer{
     </div>
 
   </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <h2>How Ordering Works (Demo Flow)</h2>
+  <p>
+    Each product on YumicCart has its own dedicated page where users can read
+    detailed descriptions, view technical specifications, and interact with
+    Buy Now and Add to Cart options.
+  </p>
+  <p>
+    In a real production system, these actions would connect to backend services
+    such as inventory management, payment gateways, and order tracking systems.
+    This demo focuses on the user experience layer.
+  </p>
 </div>
 
 <!-- SUPPORT -->
