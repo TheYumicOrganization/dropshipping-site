@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bluetooth Speaker | YumicCart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{margin:0;font-family:Arial;background:#f1f3f6;}
+.nav{background:#2874f0;color:white;padding:15px;text-align:center;}
+.container{background:white;padding:20px;margin:15px;}
+.price{color:green;font-size:22px;font-weight:bold;}
+.buttons{display:flex;gap:10px;margin-top:15px;}
+button{flex:1;padding:12px;font-size:16px;border:none;cursor:pointer;}
+.buy{background:#fb641b;color:white;}
+.cart{background:#ff9f00;color:black;}
+.cart-count{position:fixed;bottom:15px;right:15px;background:black;color:white;padding:10px 15px;border-radius:25px;}
+@media(min-width:768px){.container{max-width:900px;margin:auto;margin-top:30px;}}
+</style>
+</head>
+
+<body>
+
+<div class="nav"><strong>YumicCart</strong></div>
+
+<div class="container">
+<h1>Bluetooth Speaker</h1>
+<p class="price">₹1,799</p>
+
+<div class="buttons">
+<button class="buy" onclick="buyNow()">Buy Now</button>
+<button class="cart" onclick="addToCart()">Add to Cart</button>
+</div>
+
+<h2>Description</h2>
+<p>
+This Bluetooth speaker delivers loud and clear sound in a compact form factor.
+It is suitable for both indoor and outdoor use, making it ideal for casual
+listening, gatherings, and travel.
+</p>
+
+<h2>Key Features</h2>
+<ul>
+<li>Portable and lightweight design</li>
+<li>Clear sound with balanced output</li>
+<li>Wireless Bluetooth connectivity</li>
+<li>Rechargeable battery</li>
+</ul>
+
+<h2>Technical Specifications</h2>
+<ul>
+<li>Bluetooth Version: 5.0</li>
+<li>Audio Output: 10W</li>
+<li>Battery Backup: Up to 8 hours</li>
+<li>Charging Port: USB</li>
+</ul>
+
+<h2>Warranty</h2>
+<ul>
+<li>Warranty: 6 Months Manufacturer Warranty</li>
+</ul>
+
+<a href="index.html">← Back to YumicCart</a>
+</div>
+
+<div class="cart-count" id="cartCount">Cart: 0</div>
+
+<script>
+let cart=0;
+function addToCart(){cart++;document.getElementById("cartCount").innerText="Cart: "+cart;}
+function buyNow(){alert("Buy Now clicked (Demo only)");}
+</script>
+
+</body>
+</html>
