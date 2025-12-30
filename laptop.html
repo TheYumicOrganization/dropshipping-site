@@ -11,6 +11,50 @@ body{
   font-family:Arial, sans-serif;
   background:#f1f3f6;
 }
+/* Fade animation for image switching */
+.fade {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.fade.show {
+  opacity: 1;
+}
+
+/* Hover-to-zoom hint */
+.zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sticky images on desktop */
+@media(min-width:900px){
+  .images {
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+  }
+}
 
 /* Page container */
 .page{
@@ -138,8 +182,13 @@ body{
       </div>
 
       <div class="main-img" id="zoomBox">
-        <img id="mainImage" src="assets/images/p-specs.png">
-      </div>
+  <img id="mainImage"
+       src="assets/images/p-specs.png"
+       class="fade show">
+
+  <div class="zoom-hint" id="zoomHint">Hover to zoom</div>
+</div>
+
 
     </div>
 
@@ -169,7 +218,7 @@ body{
   </div>
 
   <!-- DESCRIPTION -->
-  <div class="section">
+  <div class="section reveal">
     <h2>Description</h2>
 
     <p>
@@ -223,10 +272,17 @@ body{
 </div>
 
 <script>
-/* Thumbnail switching */
+/* Image switching with fade */
 function changeImage(el){
   const main = document.getElementById("mainImage");
-  main.src = el.src;
+
+  main.classList.remove("show");
+  main.classList.add("fade");
+
+  setTimeout(() => {
+    main.src = el.src;
+    main.classList.add("show");
+  }, 120);
 
   document.querySelectorAll(".thumbs img")
     .forEach(img => img.classList.remove("active"));
@@ -236,8 +292,19 @@ function changeImage(el){
 /* Flipkart-style zoom */
 const zoomBox = document.getElementById("zoomBox");
 const zoomImg = document.getElementById("mainImage");
+const zoomHint = document.getElementById("zoomHint");
 
-zoomBox.addEventListener("mousemove", function(e){
+let hintShown = false;
+
+zoomBox.addEventListener("mouseenter", () => {
+  if (!hintShown) {
+    zoomHint.style.opacity = 1;
+    hintShown = true;
+    setTimeout(() => zoomHint.style.opacity = 0, 2000);
+  }
+});
+
+zoomBox.addEventListener("mousemove", (e) => {
   const rect = zoomBox.getBoundingClientRect();
   const x = ((e.clientX - rect.left) / rect.width) * 100;
   const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -246,10 +313,26 @@ zoomBox.addEventListener("mousemove", function(e){
   zoomImg.style.transform = "scale(1.8)";
 });
 
-zoomBox.addEventListener("mouseleave", function(){
+zoomBox.addEventListener("mouseleave", () => {
   zoomImg.style.transform = "scale(1)";
 });
+
+/* Reveal sections on scroll */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  const trigger = window.innerHeight * 0.85;
+  reveals.forEach(section => {
+    if (section.getBoundingClientRect().top < trigger) {
+      section.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 </script>
+
 
 </body>
 </html>
